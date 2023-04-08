@@ -25,7 +25,7 @@ const CountrySearch = () => {
 
   return (
     <div className="container">
-      <h1>Country Search</h1>
+      <h1 style={{ color: "white" }}>Country Search</h1>
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
@@ -35,10 +35,11 @@ const CountrySearch = () => {
         />
         <button type="submit">Search</button>
       </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {loading && <p style={{ color: "white" }}>Loading...</p>}
+      {error && <p style={{ color: "white" }}>{error}</p>}
       {countryInfo && (
-        <div className="country-info">
+        <div className="card">
+          <img src={countryInfo.flags.svg} alt={`Flag of ${countryInfo.name.common}`} />
           <h2>{countryInfo.name.common}</h2>
           <p>Capital: {countryInfo.capital[0]}</p>
           <p>Region: {countryInfo.region}</p>
