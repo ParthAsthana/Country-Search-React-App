@@ -2,8 +2,6 @@
 
 Country Search is a React-based web application that allows users to search for information about countries using the REST Countries API.
 
-![Country Search Screenshot](./screenshot.png)
-
 ## Features
 
 - Search for countries by name
