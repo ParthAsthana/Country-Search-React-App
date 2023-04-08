@@ -1,3 +1,13 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form {
   margin-bottom: 20px;
 }
@@ -24,22 +34,6 @@ button:hover {
 }
 
 .country-info {
-  text-align: left;
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.country-info h2 {
-  margin-bottom: 20px;
-}
-
-.country-info p {
-  margin-bottom: 10px;
-}
-
-.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
