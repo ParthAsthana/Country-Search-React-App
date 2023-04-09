@@ -14,7 +14,7 @@ const CountrySearch = () => {
     setError(null);
   
     try {
-      const response = await axios.get(`http://localhost:5001/country/${input}`);
+      const response = await axios.get(`/country/${input}`);
       
       if (response.status === 404) {
         setError(response.data.error);

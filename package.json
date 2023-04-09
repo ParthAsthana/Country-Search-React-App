@@ -2,11 +2,10 @@
   "name": "coding-challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "backend/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:all": "npm run build --prefix frontend && npm run build:backend",
-    "build:backend": "your-backend-build-command",
+    "build:all": "npm run build --prefix frontend",
     "start": "node backend/index.js",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
