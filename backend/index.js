@@ -33,6 +33,23 @@ app.get('/country/:name', async (req, res) => {
     console.error(`Error fetching country data: ${error}`);
     res.status(500).json({ error: 'An error occurred while fetching the country information. Please try again later.' });
   }
+
+  const fetchCountry = async (countryName) => {
+    try {
+      const response = await axios.get(`https://restcountries.com/v3.1/name/${countryName}`);
+      if (response.data && response.data.length > 0) {
+        return response.data[0];
+      }
+      console.error(`No data found for country: ${countryName}`);
+      return null;
+    } catch (error) {
+      console.error(`Error fetching country data: ${error}`);
+      console.error(`Error details: ${JSON.stringify(error.response.data)}`); // Add this line
+      return null;
+    }
+  };
+  
+  
 });
 
 app.use(express.static(path.join(__dirname, '../frontend/build')));
