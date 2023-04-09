@@ -20,16 +20,21 @@ const fetchCountry = async (countryName) => {
 };
 
 app.get('/country/:name', async (req, res) => {
+  console.log(`Request for country: ${req.params.name}`);
   try {
     const country = await fetchCountry(req.params.name);
     if (!country) {
+      console.log(`Country not found: ${req.params.name}`);
       return res.status(404).json({ error: 'Country not found.' });
     }
+    console.log(`Country data: ${JSON.stringify(country)}`);
     res.json(country);
   } catch (error) {
+    console.error(`Error fetching country data: ${error}`);
     res.status(500).json({ error: 'An error occurred while fetching the country information. Please try again later.' });
   }
 });
+
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.get('*', (req, res) => {
