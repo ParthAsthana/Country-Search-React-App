@@ -14,7 +14,7 @@ const CountrySearch = () => {
     setError(null);
   
     try {
-      const response = await axios.get(`/country/${input}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/country/${input}`);
       
       if (response.status === 404) {
         setError(response.data.error);
