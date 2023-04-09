@@ -12,11 +12,17 @@ const CountrySearch = () => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
+  
     try {
       const response = await axios.get(`http://localhost:5001/country/${input}`);
-      setCountryInfo(response.data);
+      
+      if (response.status === 404) {
+        setError(response.data.error);
+      } else {
+        setCountryInfo(response.data);
+      }
     } catch (err) {
+      console.error(err);
       setError('Error fetching country information');
     } finally {
       setLoading(false);
@@ -36,7 +42,7 @@ const CountrySearch = () => {
         <button type="submit">Search</button>
       </form>
       {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {error && <p className="error">{error}</p>}
       {countryInfo && (
         <div className="country-info">
           <div className="card">

@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:all": "npm run build --prefix frontend && npm run build:backend",
-    "build:backend": "your-backend-build-command"
+    "build:backend": "your-backend-build-command",
+    "start": "node backend/index.js",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
